@@ -1,5 +1,5 @@
 import re
-from googletrans import Translator
+#from googletrans import Translator
 from sentence_splitter import SentenceSplitter
 
 def clean_text(text):
@@ -12,7 +12,7 @@ def clean_text(text):
             line = re.sub('\s+', ' ', line)
             clean_text.append(line)
     return "\n".join(clean_text)
-    
+'''
 def detect_lang(text):
     translator = Translator(service_urls=[
       'translate.google.com.hk',
@@ -23,6 +23,7 @@ def detect_lang(text):
     if lang.startswith('zh'):
         lang = 'zh'
     return lang
+'''
 
 def split_sents(text, lang):
     if lang in LANG.SPLITTER:
@@ -35,11 +36,13 @@ def split_sents(text, lang):
         return sents
     else:
         raise Exception('The language {} is not suppored yet.'.format(LANG.ISO[lang]))
-    
+
+# r"([。？；！][」』”’〕》〗】)）\]]{0,2})"
+
 def _split_zh(text, limit=1000):
         sent_list = []
-        text = re.sub('(?P<quotation_mark>([。？！](?![”’"\'）])))', r'\g<quotation_mark>\n', text)
-        text = re.sub('(?P<quotation_mark>([。？！]|…{1,2})[”’"\'）])', r'\g<quotation_mark>\n', text)
+        text = re.sub('(?P<quotation_mark>([。？！](?![」』〕》〗】\]”’"\'）])))', r'\g<quotation_mark>\n', text)
+        text = re.sub('(?P<quotation_mark>([。？！]|…{1,2})[」』〕》〗】\])”’"\'）])', r'\g<quotation_mark>\n', text)
 
         sent_list_ori = text.splitlines()
         for sent in sent_list_ori:
