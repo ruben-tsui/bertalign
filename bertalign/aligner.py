@@ -15,6 +15,8 @@ class Bertalign:
                  margin=True,
                  len_penalty=True,
                  is_split=False,
+                 src_lang=None,
+                 tgt_lang=None,
                ):
         
         self.max_align = max_align
@@ -26,8 +28,8 @@ class Bertalign:
         
         src = clean_text(src)
         tgt = clean_text(tgt)
-        src_lang = detect_lang(src)
-        tgt_lang = detect_lang(tgt)
+        #src_lang = detect_lang(src)
+        #tgt_lang = detect_lang(tgt)
         
         if is_split:
             src_sents = src.splitlines()
@@ -39,8 +41,8 @@ class Bertalign:
         src_num = len(src_sents)
         tgt_num = len(tgt_sents)
         
-        src_lang = LANG.ISO[src_lang]
-        tgt_lang = LANG.ISO[tgt_lang]
+        #src_lang = LANG.ISO[src_lang]
+        #tgt_lang = LANG.ISO[tgt_lang]
         
         print("Source language: {}, Number of sentences: {}".format(src_lang, src_num))
         print("Target language: {}, Number of sentences: {}".format(tgt_lang, tgt_num))
