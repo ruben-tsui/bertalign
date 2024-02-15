@@ -1,6 +1,9 @@
-numba==0.56.4
+llvmlite==0.42.0
+numpy==1.26.4
+#numba==0.56.4
+numba==0.59.0
 #faiss-cpu==1.7.2
 faiss-gpu==1.7.2
-googletrans==4.0.0rc1
+#googletrans==4.0.0rc1
 sentence-splitter==1.4
 sentence-transformers==2.2.2
