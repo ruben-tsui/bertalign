@@ -11,6 +11,7 @@ from bertalign.encoder import Encoder
 # https://www.sbert.net/docs/pretrained_models.html
 
 model_name = "LaBSE"
+model_name = "ibm-granite/granite-embedding-278m-multilingual"
 model = Encoder(model_name)
 
 from bertalign.aligner import Bertalign
