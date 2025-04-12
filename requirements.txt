@@ -10,3 +10,4 @@ sentence-splitter==1.4
 #sentence-transformers==2.2.2
 #pandas
 #huggingface_hub==0.25.2
+huggingface_hub
