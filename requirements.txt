@@ -1,13 +1,5 @@
-#llvmlite==0.41.1
-#numpy==1.26.4
-#numba==0.56.4
-#numba==0.58.1
-#scipy==1.11.4
-#faiss-cpu==1.7.2
 faiss-gpu-cu12
-#googletrans==4.0.0rc1
 sentence-splitter==1.4
-#sentence-transformers==2.2.2
-#pandas
-#huggingface_hub==0.25.2
 huggingface_hub
+numba==0.60.0
+sentence-transformers==3.2.1
