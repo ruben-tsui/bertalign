@@ -9,7 +9,7 @@ def clean_text(text):
     for line in lines:
         line = line.strip()
         if line:
-            line = re.sub('\s+', ' ', line)
+            line = re.sub(r'\s+', ' ', line)
             clean_text.append(line)
     return "\n".join(clean_text)
 '''
@@ -44,8 +44,8 @@ def split_sents(text, lang):
 
 def _split_zh(text, limit=1000):
         sent_list = []
-        text = re.sub('(?P<quotation_mark>([。？！](?![」』〕》〗】\]”’"\'）])))', r'\g<quotation_mark>\n', text)
-        text = re.sub('(?P<quotation_mark>([。？！]|…{1,2})[」』〕》〗】\])”’"\'）])', r'\g<quotation_mark>\n', text)
+        text = re.sub(r'(?P<quotation_mark>([。？！](?![」』〕》〗】\]”’"\'）])))', r'\g<quotation_mark>\n', text)
+        text = re.sub(r'(?P<quotation_mark>([。？！]|…{1,2})[」』〕》〗】\])”’"\'）])', r'\g<quotation_mark>\n', text)
 
         sent_list_ori = text.splitlines()
         for sent in sent_list_ori:
